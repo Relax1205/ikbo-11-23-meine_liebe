@@ -15,6 +15,7 @@ function Header() {
         <Link to="/" className="nav-link">Главная</Link>
         <Link to="/about" className="nav-link">О нас</Link>
         <Link to="/services" className="nav-link">Услуги</Link>
+        <Link to="/dialogs" className="nav-link">Диалоги</Link>
         <Link to="/contacts" className="nav-link">Контакты</Link>
       </nav>
     </header>

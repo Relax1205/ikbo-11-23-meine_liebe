@@ -1,7 +1,7 @@
 import React from 'react';
 import './About.css';
 
-function About({ title, description, imageUrl }) {
+function About({ title, description }) {
   return (
     <div className="about-page">
       <h2>{title}</h2>
