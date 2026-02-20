@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 import './App.css';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
@@ -9,15 +11,14 @@ import Contacts from './components/Contacts/Contacts';
 import Services from './components/Services/Services';
 import Dialogs from './components/Dialogs/Dialogs';
 import DialogPage from './components/Dialogs/DialogPage';
+import ReviewForm from './components/ReviewForm/ReviewForm';
 
 // Компонент для прокрутки вверх при смене маршрута
 function ScrollToTop() {
   const location = useLocation();
-
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
-
   return null;
 }
 
@@ -26,7 +27,6 @@ function App() {
     title: "О нас",
     description: "Мы - команда профессионалов, предоставляющая качественные услуги в сфере информационных технологий. Наша миссия - помогать клиентам достигать их целей с помощью современных технологических решений."
   };
-
   const contactsProps = {
     contacts: [
       { type: "Телефон", value: "+7 (***) ***-**-**" },
@@ -35,7 +35,6 @@ function App() {
       { type: "Режим работы", value: "Пн-Пт: 9:00 - 18:00" }
     ]
   };
-
   const servicesProps = {
     services: [
       {
@@ -60,56 +59,60 @@ function App() {
       }
     ]
   };
-
   const handleButtonClick = () => {
     alert('Кнопка нажата! Добро пожаловать в Meine liebe!');
   };
-
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <div className="app">
-        <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Main
-                welcomeText="Добро пожаловать!"
-                buttonText="Начать"
-                onButtonClick={handleButtonClick}
-              />
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              <About
-                title={aboutProps.title}
-                description={aboutProps.description}
-              />
-            }
-          />
-          <Route
-            path="/contacts"
-            element={<Contacts contacts={contactsProps.contacts} />}
-          />
-          <Route
-            path="/services"
-            element={<Services services={servicesProps.services} />}
-          />
-          <Route
-            path="/dialogs"
-            element={<Dialogs />}
-          />
-          <Route
-            path="/dialogs/:id"
-            element={<DialogPage />}
-          />
-        </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ScrollToTop />
+        <div className="app">
+          <Header />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Main
+                  welcomeText="Добро пожаловать!"
+                  buttonText="Начать"
+                  onButtonClick={handleButtonClick}
+                />
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <About
+                  title={aboutProps.title}
+                  description={aboutProps.description}
+                />
+              }
+            />
+            <Route
+              path="/contacts"
+              element={<Contacts contacts={contactsProps.contacts} />}
+            />
+            <Route
+              path="/services"
+              element={<Services services={servicesProps.services} />}
+            />
+            <Route
+              path="/dialogs"
+              element={<Dialogs />}
+            />
+            <Route
+              path="/dialogs/:id"
+              element={<DialogPage />}
+            />
+            <Route
+              path="/reviews"
+              element={<ReviewForm />}
+            />
+          </Routes>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

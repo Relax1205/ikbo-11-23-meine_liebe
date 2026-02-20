@@ -1,0 +1,155 @@
+.review-form-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.review-form-page h2 {
+  color: #3498db;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.review-form-container {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.agreement-section {
+  background-color: #e9f7fe;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.agreement-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.agreement-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.agreement-text {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.agreement-text a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.agreement-text a:hover {
+  text-decoration: underline;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.submit-button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.submit-button:not(:disabled):hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+  border: 1px solid #c3e6cb;
+}
+
+.reviews-list {
+  margin-top: 40px;
+}
+
+.reviews-list h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.review-item {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border-left: 4px solid #3498db;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.review-item h4 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.review-item p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.review-date {
+  font-size: 12px;
+  color: #95a5a6;
+  margin-top: 10px;
+}
