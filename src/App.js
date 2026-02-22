@@ -12,8 +12,10 @@ import Services from './components/Services/Services';
 import Dialogs from './components/Dialogs/Dialogs';
 import DialogPage from './components/Dialogs/DialogPage';
 import ReviewForm from './components/ReviewForm/ReviewForm';
+import ProtectedRoute from './components/Auth/ProtectedRoute';
+import Unauthorized from './components/Auth/Unauthorized';
+import AdminPanel from './components/Admin/AdminPanel';
 
-// Компонент для прокрутки вверх при смене маршрута
 function ScrollToTop() {
   const location = useLocation();
   React.useEffect(() => {
@@ -27,6 +29,7 @@ function App() {
     title: "О нас",
     description: "Мы - команда профессионалов, предоставляющая качественные услуги в сфере информационных технологий. Наша миссия - помогать клиентам достигать их целей с помощью современных технологических решений."
   };
+  
   const contactsProps = {
     contacts: [
       { type: "Телефон", value: "+7 (***) ***-**-**" },
@@ -35,6 +38,7 @@ function App() {
       { type: "Режим работы", value: "Пн-Пт: 9:00 - 18:00" }
     ]
   };
+  
   const servicesProps = {
     services: [
       {
@@ -59,9 +63,11 @@ function App() {
       }
     ]
   };
+  
   const handleButtonClick = () => {
     alert('Кнопка нажата! Добро пожаловать в Meine liebe!');
   };
+  
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -107,6 +113,18 @@ function App() {
             <Route
               path="/reviews"
               element={<ReviewForm />}
+            />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute requiredRoles={['admin']}>
+                  <AdminPanel />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/unauthorized"
+              element={<Unauthorized />}
             />
           </Routes>
           <Footer />
